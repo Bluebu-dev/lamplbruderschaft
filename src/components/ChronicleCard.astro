@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  excerpt: string;
+  href: string;
+  cover?: ImageMetadata;
+}
+
+const {
+  title,
+  date,
+  excerpt,
+  href,
+  cover,
+} = Astro.props;
+
+const formattedDate = date.toLocaleDateString('de-DE', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<article class="card">
+
+  {
+    cover && (
+      <a href={href} class="image-link" tabindex="-1">
+        <Image
+          src={cover}
+          alt=""
+          width={700}
+          class="cover"
+        />
+      </a>
+    )
+  }
+
+  <div class="content">
+
+    <p class="date">{formattedDate}</p>
+
+    <h3>
+      <a href={href}>{title}</a>
+    </h3>
+
+    <p class="excerpt">
+      {excerpt}
+    </p>
+
+    <a class="read" href={href}>
+      Beitrag lesen
+      <span aria-hidden="true">→</span>
+    </a>
+
+  </div>
+
+</article>
+
+<style>
+  .card {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .image-link {
+    display: block;
+
+    margin-top: 2rem;
+
+    overflow: hidden;
+  }
+
+  .cover {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+  }
+
+  .image-link:hover .cover {
+    transform: scale(1.03);
+  }
+
+  .content {
+    padding-top: 2rem;
+  }
+
+  .date {
+    margin: 0 0 1rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+  }
+
+  h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  h3 a {
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    color: var(--color-primary);
+  }
+
+  .excerpt {
+    margin: 0 0 2rem;
+
+    line-height: 1.7;
+
+    color: var(--color-muted);
+  }
+
+  .read {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .read span {
+    transition: transform 0.2s ease;
+  }
+
+  .read:hover span {
+    transform: translateX(0.35rem);
+  }
+</style>

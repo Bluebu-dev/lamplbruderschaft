@@ -1,0 +1,107 @@
+<section class="intro-section">
+  <div class="intro-grid">
+    <div class="intro-text">
+      <p class="eyebrow">Tradition in Passau</p>
+
+      <h2>Die Lamplbruderschaft</h2>
+
+      <p>
+        Die Lamplbruderschaft ist tief mit der Geschichte Passaus verbunden.
+        Seit Generationen steht sie für Gemeinschaft, gelebte Tradition und
+        gegenseitige Unterstützung.
+      </p>
+
+      <p>
+        Auch heute bewahren wir historische Wurzeln, ohne dabei den Blick für
+        die Gegenwart zu verlieren.
+      </p>
+
+      <a href="/bruderschaft" class="text-link">
+        Mehr über die Bruderschaft
+      </a>
+    </div>
+
+    <div class="intro-image">
+      <img
+        src="/images/zeichnung-lamplbruderschaft.jpg"
+        alt="Historische Darstellung der Lamplbruderschaft in Passau"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro-section {
+    padding: 7rem 2rem;
+    background: #f7f4ee;
+  }
+
+  .intro-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    color: #7a1f1f;
+  }
+
+  h2 {
+    margin: 0 0 2rem;
+
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+  }
+
+  .intro-text p {
+    max-width: 620px;
+
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .text-link {
+    display: inline-block;
+
+    margin-top: 1rem;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    border-bottom: 1px solid currentColor;
+  }
+
+  .text-link:hover {
+    opacity: 0.7;
+  }
+
+  .intro-image img {
+    width: 100%;
+    display: block;
+
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  @media (max-width: 800px) {
+    .intro-section {
+      padding: 5rem 1.5rem;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

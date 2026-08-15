@@ -1,0 +1,180 @@
+<section class="magnus">
+  <div class="container">
+
+    <div class="number" aria-hidden="true">
+      1604
+    </div>
+
+    <div class="content">
+
+      <div class="heading">
+        <p class="eyebrow">Der Namensgeber</p>
+
+        <h2>
+          Magnus
+          <span>Lampl</span>
+        </h2>
+      </div>
+
+      <div class="text">
+        <p class="lead">
+          Ein Passauer Bürger, dessen Stiftung die Geschichte
+          der Bruderschaft bis heute prägt.
+        </p>
+
+        <p>
+          Magnus Lampl war Bürger und Seilermeister in Passau.
+          Am 3. Juli 1604 machte er der Gemeinschaft der
+          Schiffsleute und Salzfertiger eine bedeutende Stiftung.
+        </p>
+
+        <p>
+          Seine Unterstützung wurde für die Gemeinschaft so prägend,
+          dass sie schließlich seinen Namen annahm:
+          <strong>Lamplbruderschaft.</strong>
+        </p>
+
+        <a href="/geschichte" class="more">
+          Mehr über Magnus Lampl
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .magnus {
+    position: relative;
+    overflow: hidden;
+
+    padding: 9rem 2rem;
+
+    background: var(--color-background);
+    color: var(--color-dark);
+  }
+
+  .container {
+    position: relative;
+
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .number {
+    position: absolute;
+
+    top: -8rem;
+    right: -2rem;
+
+    font-size: clamp(10rem, 25vw, 22rem);
+    font-weight: bold;
+    line-height: 1;
+
+    color: var(--color-background-alt);
+
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7rem;
+    align-items: end;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.25rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 0.85;
+  }
+
+  h2 span {
+    display: block;
+
+    font-weight: normal;
+
+    color: var(--color-primary);
+  }
+
+  .text {
+    max-width: 520px;
+  }
+
+  .lead {
+    margin-top: 0;
+
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .text p:not(.lead) {
+    font-size: 1.05rem;
+    line-height: 1.8;
+
+    color: var(--color-muted);
+  }
+
+  .more {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .more span {
+    font-size: 1.5rem;
+
+    transition: transform 0.2s ease;
+  }
+
+  .more:hover span {
+    transform: translateX(0.4rem);
+  }
+
+  @media (max-width: 800px) {
+    .magnus {
+      padding: 6rem 1.5rem;
+    }
+
+    .number {
+      top: -2rem;
+      right: -1rem;
+
+      font-size: 10rem;
+    }
+
+    .content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .text {
+      max-width: none;
+    }
+  }
+</style>

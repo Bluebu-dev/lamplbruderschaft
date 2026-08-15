@@ -1,0 +1,50 @@
+---
+interface Props {
+  year: string;
+  title: string;
+  text: string;
+}
+
+const { year, title, text } = Astro.props;
+---
+
+<div class="history-fact">
+  <span class="year">{year}</span>
+
+  <h3>{title}</h3>
+
+  <p>{text}</p>
+</div>
+
+<style>
+  .history-fact {
+    padding: 2rem 0;
+  }
+
+  .year {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: bold;
+    line-height: 1;
+
+    color: #7a1f1f;
+  }
+
+  h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1.4rem;
+  }
+
+  p {
+    margin: 0;
+
+    max-width: 320px;
+
+    line-height: 1.7;
+    color: #69635c;
+  }
+</style>

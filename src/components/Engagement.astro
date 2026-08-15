@@ -1,0 +1,222 @@
+---
+const points = [
+  {
+    number: '01',
+    title: 'Direkte Hilfe',
+    text: 'Die Lamplbruderschaft unterstützt Menschen in Passau, die unverschuldet in schwierige Lebenssituationen geraten sind.',
+  },
+  {
+    number: '02',
+    title: 'Regional verbunden',
+    text: 'Die Hilfe bleibt bewusst in Passau und kommt dort an, wo sie unmittelbar gebraucht wird.',
+  },
+  {
+    number: '03',
+    title: 'Tradition mit Aufgabe',
+    text: 'Der soziale Gedanke ist kein moderner Zusatz, sondern seit Jahrhunderten Teil des Selbstverständnisses der Bruderschaft.',
+  },
+];
+---
+
+<section class="engagement">
+  <div class="container">
+
+    <div class="heading">
+      <p class="eyebrow">Soziales Engagement</p>
+
+      <h2>
+        Hilfe, die dort ankommt,
+        <span>wo sie gebraucht wird.</span>
+      </h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        Die Geschichte der Lamplbruderschaft ist eng mit gegenseitiger
+        Unterstützung verbunden. Auch heute steht die Hilfe für Menschen
+        in Passau im Mittelpunkt.
+      </p>
+
+      <a href="/soziales-engagement">
+        Mehr über unser Engagement
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="points">
+      {
+        points.map((point) => (
+          <article class="point">
+            <span class="number">{point.number}</span>
+
+            <h3>{point.title}</h3>
+
+            <p>{point.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .engagement {
+    padding: 8rem 2rem;
+
+    background: var(--color-primary);
+    color: var(--color-background);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .heading {
+    max-width: 900px;
+
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.25rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--color-gold);
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
+  }
+
+  h2 span {
+    display: block;
+
+    font-weight: normal;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    gap: 4rem;
+    align-items: end;
+
+    margin-bottom: 5rem;
+  }
+
+  .intro p {
+    max-width: 700px;
+
+    margin: 0;
+
+    font-size: 1.25rem;
+    line-height: 1.7;
+
+    color: #eadfda;
+  }
+
+  .intro a {
+    justify-self: end;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--color-gold);
+  }
+
+  .intro a span {
+    font-size: 1.4rem;
+
+    transition: transform 0.2s ease;
+  }
+
+  .intro a:hover span {
+    transform: translateX(0.4rem);
+  }
+
+  .points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .point {
+    padding: 3rem 2rem 0 0;
+  }
+
+  .point + .point {
+    padding-left: 2rem;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .number {
+    display: block;
+
+    margin-bottom: 2rem;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+
+    color: var(--color-gold);
+  }
+
+  h3 {
+    margin: 0 0 1.25rem;
+
+    font-size: 1.7rem;
+  }
+
+  .point p {
+    margin: 0;
+
+    line-height: 1.7;
+
+    color: #eadfda;
+  }
+
+  @media (max-width: 800px) {
+    .engagement {
+      padding: 5rem 1.5rem;
+    }
+
+    .intro {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .intro a {
+      justify-self: start;
+    }
+
+    .points {
+      grid-template-columns: 1fr;
+    }
+
+    .point {
+      padding: 2.5rem 0;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .point + .point {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+</style>

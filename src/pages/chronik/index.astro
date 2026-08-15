@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ChronicleCard from '../../components/ChronicleCard.astro';
+
+const entries = (await getCollection('chronik')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout
+  title="Chronik | Lamplbruderschaft zu Passau"
+  description="Neuigkeiten, Veranstaltungen und Ereignisse aus dem Leben der Lamplbruderschaft zu Passau."
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Aktuelles & Geschichte</p>
+
+        <h1>Chronik</h1>
+
+        <p class="lead">
+          Ereignisse, Begegnungen und Geschichten aus dem Leben
+          der Lamplbruderschaft.
+        </p>
+      </div>
+    </section>
+
+    <section class="entries">
+      <div class="container">
+        <div class="grid">
+          {
+            entries.map((entry) => (
+              <ChronicleCard
+                title={entry.data.title}
+                date={entry.data.date}
+                excerpt={entry.data.excerpt}
+                cover={entry.data.cover}
+                href={`/chronik/${entry.id}`}
+                />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--color-gold);
+  }
+
+  h1 {
+    margin: 0;
+
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.9;
+  }
+
+  .lead {
+    max-width: 650px;
+
+    margin: 2rem 0 0;
+
+    font-size: 1.25rem;
+    line-height: 1.7;
+
+    color: #d6d0c8;
+  }
+
+  .entries {
+    padding: 7rem 2rem;
+
+    background: var(--color-background);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 4rem 3rem;
+  }
+
+  @media (max-width: 800px) {
+    .hero {
+      padding: 6rem 1.5rem 4rem;
+    }
+
+    .entries {
+      padding: 5rem 1.5rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

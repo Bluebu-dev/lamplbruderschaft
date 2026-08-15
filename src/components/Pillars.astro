@@ -1,0 +1,193 @@
+<section class="pillars">
+  <div class="container">
+    <header class="section-header">
+      <p class="eyebrow">Seit Jahrhunderten verbunden</p>
+
+      <h2>
+        Tradition bewahren.<br />
+        Menschen helfen.
+      </h2>
+
+      <p class="lead">
+        Aus einer Gemeinschaft der Passauer Schiffsleute und Salzfertiger
+        entwickelte sich über Jahrhunderte eine Bürgervereinigung, deren
+        wichtigste Aufgabe bis heute geblieben ist: Menschen in Passau zu helfen.
+      </p>
+    </header>
+
+    <div class="pillar-grid">
+
+      <article class="pillar">
+        <span class="number">01</span>
+
+        <h3>Geschichte</h3>
+
+        <p>
+          Seit dem Mittelalter ist die Bruderschaft eng mit Passau verbunden.
+          Ihre Geschichte reicht mehr als sieben Jahrhunderte zurück.
+        </p>
+
+        <a href="/geschichte">
+          Geschichte entdecken
+        </a>
+      </article>
+
+      <article class="pillar">
+        <span class="number">02</span>
+
+        <h3>Bruderschaft</h3>
+
+        <p>
+          Gemeinschaft, Verantwortung und die Verbundenheit mit der Stadt
+          prägen die Lamplbruderschaft bis heute.
+        </p>
+
+        <a href="/bruderschaft">
+          Die Bruderschaft
+        </a>
+      </article>
+
+      <article class="pillar">
+        <span class="number">03</span>
+
+        <h3>Hilfe</h3>
+
+        <p>
+          Seit ihren Anfängen unterstützt die Bruderschaft Menschen in
+          schwierigen Lebenssituationen in Passau.
+        </p>
+
+        <a href="/soziales-engagement">
+          Unser Engagement
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .pillars {
+    padding: 8rem 2rem;
+    background: #24211d;
+    color: #f7f4ee;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    max-width: 800px;
+    margin-bottom: 5rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.25rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: #c89f62;
+  }
+
+  h2 {
+    margin: 0 0 2rem;
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.05;
+  }
+
+  .lead {
+    max-width: 700px;
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+
+    color: #d6d0c8;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid #5a554e;
+  }
+
+  .pillar {
+    padding: 3rem 2rem 2rem 0;
+  }
+
+  .pillar + .pillar {
+    padding-left: 2rem;
+    border-left: 1px solid #5a554e;
+  }
+
+  .number {
+    display: block;
+
+    margin-bottom: 3rem;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+
+    color: #c89f62;
+  }
+
+  h3 {
+    margin: 0 0 1.5rem;
+
+    font-size: 1.8rem;
+  }
+
+  .pillar p {
+    margin-bottom: 2rem;
+
+    line-height: 1.7;
+    color: #c9c3bb;
+  }
+
+  .pillar a {
+    color: #f7f4ee;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    border-bottom: 1px solid #c89f62;
+  }
+
+  .pillar a:hover {
+    color: #c89f62;
+  }
+
+  @media (max-width: 800px) {
+    .pillars {
+      padding: 5rem 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .pillar-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pillar {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #5a554e;
+    }
+
+    .pillar + .pillar {
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .number {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import ChronicleCard from './ChronicleCard.astro';
+
+const entries = (await getCollection('chronik'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<section class="chronicle">
+  <div class="container">
+
+    <header>
+      <div>
+        <p class="eyebrow">Aktuelles & Chronik</p>
+
+        <h2>
+          Aus dem Leben
+          <span>der Bruderschaft.</span>
+        </h2>
+      </div>
+
+      <a class="all" href="/chronik">
+        Alle Beiträge
+        <span aria-hidden="true">→</span>
+      </a>
+    </header>
+
+    <div class="grid">
+      {
+        entries.map((entry) => (
+          <ChronicleCard
+            title={entry.data.title}
+            date={entry.data.date}
+            excerpt={entry.data.excerpt}
+            cover={entry.data.cover}
+            href={`/chronik/${entry.id}`}
+          />
+        ))
+      }
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .chronicle {
+    padding: 8rem 2rem;
+
+    background: var(--color-background-alt);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 3rem;
+
+    margin-bottom: 5rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--color-primary);
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.05;
+  }
+
+  h2 span {
+    display: block;
+
+    font-weight: normal;
+  }
+
+  .all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    white-space: nowrap;
+
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 3rem;
+  }
+
+  @media (max-width: 800px) {
+    .chronicle {
+      padding: 5rem 1.5rem;
+    }
+
+    header {
+      align-items: flex-start;
+      flex-direction: column;
+
+      margin-bottom: 3rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,40 @@
+@import './components/hero.css';
+@import './pages/bruderschaft.css';
+@import './layout.css';
+
+:root {
+  --color-primary: #7a1f1f;
+  --color-dark: #24211d;
+  --color-background: #f7f4ee;
+  --color-background-alt: #eee8dc;
+  --color-gold: #c89f62;
+  --color-muted: #69635c;
+  --color-border: #c9bfae;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--color-background);
+  color: var(--color-dark);
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}

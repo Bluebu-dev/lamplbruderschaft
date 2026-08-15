@@ -1,0 +1,34 @@
+.hero {
+  padding: 8rem 0 6rem;
+
+  background: var(--color-dark);
+  color: var(--color-background);
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+}
+
+.hero .lead {
+  max-width: 650px;
+
+  margin: 2rem 0 0;
+
+  font-size: 1.25rem;
+  line-height: 1.7;
+
+  color: #d6d0c8;
+}
+
+.hero .eyebrow {
+  color: var(--color-gold);
+}
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 6rem 0 4rem;
+  }
+}

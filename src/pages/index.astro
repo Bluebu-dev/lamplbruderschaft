@@ -1,17 +1,24 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+import Hero from '../components/Hero.astro';
+import IntroSection from '../components/IntroSection.astro';
+import Pillars from '../components/Pillars.astro';
+import HistoryNumbers from '../components/HistoryNumbers.astro';
+import MagnusLampl from '../components/MagnusLampl.astro';
+import Engagement from '../components/Engagement.astro';
+import ChroniclePreview from '../components/ChroniclePreview.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Lamplbruderschaft zu Passau"
+  description="Die Lamplbruderschaft zu Passau – Tradition, Gemeinschaft und Hilfe seit Jahrhunderten."
+>
+  <Hero />
+  <IntroSection />
+  <Pillars />
+  <HistoryNumbers />
+  <MagnusLampl />
+  <Engagement />
+  <ChroniclePreview />
+</BaseLayout>
