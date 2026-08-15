@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section class="magnus">
   <div class="container">
 
@@ -34,7 +38,7 @@
           <strong>Lamplbruderschaft.</strong>
         </p>
 
-        <a href="/geschichte" class="more">
+        <a href={`${base}geschichte`} class="more">
           Mehr über Magnus Lampl
           <span aria-hidden="true">→</span>
         </a>

@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section class="pillars">
   <div class="container">
     <header class="section-header">
@@ -27,7 +31,7 @@
           Ihre Geschichte reicht mehr als sieben Jahrhunderte zurück.
         </p>
 
-        <a href="/geschichte">
+        <a href={`${base}geschichte`}>
           Geschichte entdecken
         </a>
       </article>
@@ -42,7 +46,7 @@
           prägen die Lamplbruderschaft bis heute.
         </p>
 
-        <a href="/bruderschaft">
+        <a href={`${base}bruderschaft`}>
           Die Bruderschaft
         </a>
       </article>
@@ -57,7 +61,7 @@
           schwierigen Lebenssituationen in Passau.
         </p>
 
-        <a href="/soziales-engagement">
+        <a href={`${base}soziales-engagement`}>
           Unser Engagement
         </a>
       </article>

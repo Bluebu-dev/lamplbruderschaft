@@ -1,5 +1,7 @@
 ---
 import HistoryFact from './HistoryFact.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="history">
@@ -37,7 +39,7 @@ import HistoryFact from './HistoryFact.astro';
     </div>
 
     <div class="history-link">
-      <a href="/geschichte">
+      <a href={`${base}geschichte`}>
         Die ganze Geschichte entdecken
         <span aria-hidden="true">→</span>
       </a>

@@ -5,6 +5,8 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ImageCarousel from '../../components/ImageCarousel.astro';
 
+const base = import.meta.env.BASE_URL;
+
 export async function getStaticPaths() {
   const entries = await getCollection('chronik');
 
@@ -52,7 +54,7 @@ const formattedDate = entry.data.date.toLocaleDateString('de-DE', {
       }
 
       <div class="hero-content">
-        <a class="back" href="/chronik">
+        <a class="back" href={`${base}chronik`}>
           ← Zur Chronik
         </a>
 

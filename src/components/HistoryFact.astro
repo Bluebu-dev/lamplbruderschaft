@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { year, title, text } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <div class="history-fact">

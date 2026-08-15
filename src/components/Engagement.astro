@@ -16,6 +16,8 @@ const points = [
     text: 'Der soziale Gedanke ist kein moderner Zusatz, sondern seit Jahrhunderten Teil des Selbstverständnisses der Bruderschaft.',
   },
 ];
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="engagement">
@@ -37,7 +39,7 @@ const points = [
         in Passau im Mittelpunkt.
       </p>
 
-      <a href="/soziales-engagement">
+      <a href={`${base}soziales-engagement`}>
         Mehr über unser Engagement
         <span aria-hidden="true">→</span>
       </a>

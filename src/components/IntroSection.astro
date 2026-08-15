@@ -1,3 +1,7 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
 <section class="intro-section">
   <div class="intro-grid">
     <div class="intro-text">
@@ -16,14 +20,14 @@
         die Gegenwart zu verlieren.
       </p>
 
-      <a href="/bruderschaft" class="text-link">
+      <a href={`${base}bruderschaft`} class="text-link">
         Mehr über die Bruderschaft
       </a>
     </div>
 
     <div class="intro-image">
       <img
-        src="/images/zeichnung-lamplbruderschaft.jpg"
+        src={`${base}images/zeichnung-lamplbruderschaft.jpg`}
         alt="Historische Darstellung der Lamplbruderschaft in Passau"
       />
     </div>
