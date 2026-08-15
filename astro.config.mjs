@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://bluebu-dev.github.io',
-  base: '/lamplbruderschaft',
+  base: '/lamplbruderschaft/',
 
   vite: {
     server: {
