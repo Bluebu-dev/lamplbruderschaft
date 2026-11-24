@@ -5,102 +5,73 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
-  title="Über die Bruderschaft | Lamplbruderschaft zu Passau"
-  description="Über die Lamplbruderschaft zu Passau, ihren Namen, ihre Geschichte und ihren Auftrag."
+  title="Geschichte | Lamplbruderschaft zu Passau"
+  description="Von der Passauer Zunft der Schiffleute und Salzfertiger zur Lamplbruderschaft."
 >
-  <main>
+  <main class="editorial-page">
+    <header class="editorial-header container">
+      <h1>Geschichte</h1>
+      <p>Unserer lieben Frau Bruderschaft der Schiffleut und Salzfertiger zu Passau, genannt Lamplbruderschaft.</p>
+    </header>
 
-    <section class="page-hero page-hero--light">
-      <div class="container">
-        <p class="eyebrow">Über uns</p>
-
-        <h1>Die Lamplbruderschaft</h1>
-
-        <p class="lead">
-          Unserer lieben Frau Bruderschaft der Schiffleut und
-          Salzfertiger zu Passau, genannt Lamplbruderschaft.
-        </p>
-      </div>
-    </section>
-
-
-    <nav class="section-nav">
+    <nav class="section-nav" aria-label="Auf dieser Seite">
       <div class="container section-nav__inner">
         <a href="#name">Der Name</a>
+        <a href="#stiftung">Die Stiftung</a>
+        <a href="#mahl">Das Fröhliche Mahl</a>
         <a href="#nadel">Bruderschaftsnadel</a>
       </div>
     </nav>
 
+    <section id="name" class="editorial-section container">
+      <div class="editorial-prose">
+        <h2>Woher kommt der Name Lamplbruderschaft?</h2>
+        <p>Der offizielle Name unserer Gemeinschaft lautet <strong><em>Liebfrauen Schiffleute(e) - und Salzfertiger-Zech</em></strong> oder <strong><em>Unserer lieben Frau Schiffleut und Salzfertiger Zech</em></strong>, wobei anstelle von Zech oder Zeche auch das Wort Zunft stehen kann. Es besagt, dass sie einst der Zusammenschluss all jener war, die in Passau die Schifffahrt betrieben und jener, die am Salzhandel beteiligt waren. Sie war also eine ständische Zunft.</p>
+        <p>Urkundlich ist sie bereits 1306 nachweisbar, es gibt aber keinen Zweifel darüber, dass sie schon wesentlich älter ist und vermutlich schon um 1200 bestand. Sie zählt damit zu den ältesten noch heute existierenden Bürgervereinigungen der Welt.</p>
+      </div>
+    </section>
 
-    <section id="name" class="content-section">
-      <div class="container content-grid">
-
-        <div class="section-title">
-          <p class="eyebrow">Über die Bruderschaft</p>
-
-          <h2>
-            Woher kommt der Name
-            <span>Lamplbruderschaft?</span>
-          </h2>
-
-          <figure class="section-image">
+    <section id="stiftung" class="editorial-section container">
+      <h2>Magnus Lampls Stiftung von 1604</h2>
+      <div class="editorial-grid">
+        <div class="editorial-prose">
+          <p>Weil diese ständische Zunft sich regelmäßig auch zu Gottesdiensten traf, einen Altar in der Passauer Stadtpfarrkirche St. Paul stiftete und zeitweise sogar einen eigenen Kaplan angestellt hatte, wurde sie auch Bruderschaft genannt, sodass auch der Name <strong><em>Liebfrauen Schiffleut- und Salzfertiger Bruderschaft</em></strong> geläufig wurde. Dieser Standesgemeinschaft machte am 3. Juli 1604 Magnus Lampl, Bürger und Seilermeister in Passau eine bedeutsame Stiftung, wie aus einer durch starke Brandflecken beschädigten Pergamenturkunde im Stadtarchiv Passau hervorgeht:</p>
+          <p>Die beiden Passauer Bürger und Zechpröbste der <strong><em>wohllöblichen Salzfertiger- und Schiffsleutzech</em></strong> nämlich Hans Koppenbeck, des Rats und Thomas Schalkhammer, Fischkäufl, bekunden in diesem Dokument, <strong><em>dass der ehrbare und wohlgeachtete Mang Lämpl, Bürger und Seilermeister zu Passau</em></strong> mit Zustimmung u.a. der Herren und Brüder der Schiffsleutzech in der st. Paulskirche zu Passau einen ewigen Jahrtag für seine Verwandten und für alle verstorbenen Mitglieder der Schiffleutbruderschaft gestiftet habe und dass dieser Jahrtag zu begehen sei jeweils an dem Tag, an dem in der genannten Bruderschaft die Jahresrechnung vorgenommen wird.</p>
+        </div>
+        <figure class="editorial-figure">
+          <a href={`${base}images/bruderschaft/urkunde.jpg`}>
             <img
               src={`${base}images/bruderschaft/urkunde.jpg`}
-              alt="Historische Darstellung der Lamplbruderschaft zu Passau"
+              width="680"
+              height="465"
+              loading="lazy"
+              alt="Pergamenturkunde mit Brandspuren"
             />
-          </figure>
-        </div>
-
-        <div class="prose">
-
-          <p class="lead-text">
-            Der offizielle Name unserer Gemeinschaft lautet Liebfrauen Schiffleute(e) - und Salzfertiger-Zech oder Unserer lieben Frau Schffleut und Salzfertiger Zech, wobei anstelle von Zech oder Zeche auf das Wort Zunft stehen kann. Es besagt, dass sie einst der Zusammenschluss all jener war, die in Passau die Schifffahrt betrieben und jener, die am Salzhandel beteiligt waren. Sie war also eine ständische Zunft.
-          </p>
-
-          <p>
-            Urkundlich ist sie bereits 1306 nachweisbar, es gibt aber keinen Zweifel darüber, dass sie schon wesentlich älter ist und vermutlich schon um 1200 bestand. Sie zählt damit zu den ältesten noch heute existierenden Bürgervereinigungen der Welt.
-          </p>
-
-          <p>
-            Weil diese ständische Zunft sich regelmäßig auch zu Gottesdiensten traf, einen Altar in der Passauer Stadtpfarrkirche St. Paul stiftete und zeitweise sogar einen eigenen Kaplan angestellt hatte, wurde sie auch Bruderschaft genannt, sodass auch der Name Liebfrauen Schiffleut- und Salzfertiger Bruderschaft geläufig wurde. Dieser Standesgemeinschaft machte am 3. Juli 1604 Magnus Lampl, Bürger und Seilermeister in Passau eine bedeutsame Stiftung, wie aus einer durch starke Brandflecken beschädigten Pergamenturkunde im Stadtarchiv Passau hervorgeht:
-          </p>
-
-          <p>
-            die beiden Passauer Bürger und Zechpröbste der wohllöblichen Salzfertiger- und Schiffsleutzech nämlich Hans Koppenbeck, des Rats und Thomas Schalkhammer, Fischkäufl, bekunden in diesem Dokument, dass der ehrbare und wohlgeachtete Mang Lämpl, Bürger und Seilermeister zu Passau mit Zustimmung u.a. der Herren und Brüder der Schiffsleutzech in der st. Paulskirche zu Passau einen ewigen Jahrtag für seine Verwandten und für alle verstorbenen Mitglieder der Schiffleutbruderschaft gestiftet habe und dass dieser Jahrtag zu begehen sei jeweils an dem Tag, an der in der ganannten Bruderschaft die Jahresrechnung vorgenommen wird. Aus diesem Dokument geht eindeutig hervor, dass Lampl der Begründer des Fröhlichen Mahles war, dessen Tradition bis heute erhalten blieb. Ob auf ihn auch die besondere Bedeutung der heiligen Zahl Sieben in der Lampl-Bruderschaft zurückgeht, oder ob diese in der Gemeinschaft schon vorher Tradition hatte, ist nicht belegbar. Auffallend jedenfalls ist, dass Lampl 700 Gulden gegeben hat und dass sein gestifteter Gedenkgottesdienst mit dem anschließenden gemeinsamen Mahle alle sieben Jahre abgehalten wurde.
-          </p>
-
-        </div>
-
+          </a>
+          <figcaption>Die Stiftungsurkunde vom 3. Juli 1604</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="nadel" class="content-section">
-      <div class="container content-grid">
-
-        <div class="section-title">
-          <p class="eyebrow">Zeichen der Gemeinschaft</p>
-
-          <h2>Die Bruderschaftsnadel</h2>
-
-          <figure class="section-image">
-            <img
-              src={`${base}images/bruderschaft/nadel.jpg`}
-              alt="Anstecknadel der Bruderschaft"
-            />
-          </figure>
-        </div>
-
-        <div class="prose">
-
-          <p class="lead-text">
-            Die Bruderschaftsnadel bekundet in der Öffentlichkeit
-            die Zugehörigkeit zur Bruderschaft.
-          </p>
-
-        </div>
-
+    <section id="mahl" class="editorial-section container">
+      <div class="editorial-prose">
+        <h2>Das Fröhliche Mahl</h2>
+        <p>Aus diesem Dokument geht eindeutig hervor, dass Lampl der Begründer des Fröhlichen Mahles war, dessen Tradition bis heute erhalten blieb. Ob auf ihn auch die besondere Bedeutung der heiligen Zahl Sieben in der Lampl-Bruderschaft zurückgeht, oder ob diese in der Gemeinschaft schon vorher Tradition hatte, ist nicht belegbar. Auffallend jedenfalls ist, dass Lampl 700 Gulden gegeben hat und dass sein gestifteter Gedenkgottesdienst mit dem anschließenden gemeinsamen Mahle alle sieben Jahre abgehalten wurde.</p>
       </div>
     </section>
 
+    <section id="nadel" class="editorial-section container">
+      <h2>Die Bruderschaftsnadel</h2>
+      <div class="editorial-detail">
+        <img
+          src={`${base}images/bruderschaft/nadel.jpg`}
+          width="113"
+          height="123"
+          loading="lazy"
+          alt="Anstecknadel der Lamplbruderschaft"
+        />
+        <p>Die Bruderschaftsnadel bekundet in der Öffentlichkeit die Zugehörigkeit zur Bruderschaft.</p>
+      </div>
+    </section>
   </main>
 </BaseLayout>
