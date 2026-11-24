@@ -5,158 +5,79 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
-  title="Über die Bruderschaft | Lamplbruderschaft zu Passau"
-  description="Über die Lamplbruderschaft zu Passau, ihren Namen, ihre Geschichte und ihren Auftrag."
+  title="Bruderschaft | Lamplbruderschaft zu Passau"
+  description="Vorstandschaft, Armenbetreuer und Auftrag der Lamplbruderschaft zu Passau."
 >
-  <main>
+  <main class="editorial-page">
+    <header class="editorial-header container">
+      <h1>Bruderschaft</h1>
+      <p>Unserer lieben Frau Bruderschaft der Schiffleut und Salzfertiger zu Passau, genannt Lamplbruderschaft.</p>
+    </header>
 
-    <section class="page-hero page-hero--light">
-      <div class="container">
-        <p class="eyebrow">Über uns</p>
-
-        <h1>Die Lamplbruderschaft</h1>
-
-        <p class="lead">
-          Unserer lieben Frau Bruderschaft der Schiffleut und
-          Salzfertiger zu Passau, genannt Lamplbruderschaft.
-        </p>
-      </div>
-    </section>
-
-
-    <nav class="section-nav">
+    <nav class="section-nav" aria-label="Auf dieser Seite und Mitgliederliste">
       <div class="container section-nav__inner">
-        <a href="#vorstand">Vorstand</a>
+        <a href="#vorstand">Vorstandschaft</a>
         <a href="#armenbetreuer">Armenbetreuer</a>
-        <a href="#auftrag">Auftrag</a>
+        <a href="#auftrag">Unser Auftrag</a>
+        <a class="section-nav__members" href={`${base}bruderschaft/mitglieder/`}>Alle Mitglieder</a>
       </div>
     </nav>
 
-    <section id="vorstand" class="content-section">
-      <div class="container content-grid">
+    <section id="vorstand" class="editorial-section container">
+      <h2>Vorstandschaft</h2>
+      <figure class="editorial-figure editorial-figure--wide">
+        <img
+          src={`${base}images/bruderschaft/HomeR04_5923.jpg`}
+          width="1010"
+          height="667"
+          alt="Gruppenfoto der Vorstandschaft der Lamplbruderschaft"
+        />
+        <figcaption>Am 10. März 2020 fand die durch die Satzung alle 7 Jahre vorgeschriebene „Ordentliche Hauptversammlung“ statt. Auf dem Foto (v. links) Richard Schaffner (Beisitzer und Fahnenträger), Dr. Ludwig Bauer (Bruderschaftsmeister), Dieter Stephan (Schriftführer), Rudi Wagner, Ralf Schützenberger (beide Beisitzer), Drl. Hans Zangerle, Max Absmeier (beide Armenbetreuer), Reinhard Allinger (Schatzmeister), Peter Geins (stv. Schriftführer), Horst Matschiner (Beisitzer).<br />Nicht am Bild: Prof. Dr. Egon J. Greipl (stv. Bruderschaftsmeister), Prof. Dr. Franz Staudt (Armenbetreuer).</figcaption>
+      </figure>
+      <aside class="editorial-note" aria-labelledby="vorstand-wahl">
+        <h3 id="vorstand-wahl">Wahl im Januar 2026</h3>
+        <p>Prof. Dr. Egon Johannes Greipl verzichtete aus privaten Gründen Ende 2025 auf sein Amt. Bei einer außerordentlichen Mitgliederversammlung am 13. Januar 2026 wurde Ralf Schützenberger einstimmig als Nachfolger gewählt.</p>
+        <a href={`${base}chronik/2026-rathausbesuch/`}>Zum Bericht über den Rathausbesuch</a>
+      </aside>
+    </section>
 
-        <div class="section-title">
-
-          <h2>Vorstandschaft</h2>
-
-          <figure class="section-image">
-            <img
-              src={`${base}images/bruderschaft/HomeR04_5923.jpg`}
-              alt="Vorstandschaft"
-            />
-          </figure>
-        </div>
-
-        <div class="prose">
-
-          <p class="lead-text">
-            Am 10. März 2020 fand die durch die Satzung alle 7 Jahre vorgeschriebene “Ordentliche Hauptversammlung” statt. Auf dem Foto (v. links) Richard Schaffner (Beisitzer und Fahnenträger), Dr. Ludwig Bauer (Bruderschaftsmeister), Dieter Stephan (Schriftführer), Rudi Wagner, Ralf Schützenberger (beide Beisitzer), Drl. Hans Zangerle, Max Absmeier (beide Armenbetreuer), Reinhard Allinger (Schatzmeister), Peter Geins (stv. Schriftführer), Horst Matschiner (Beisitzer).
-Nicht am Bild: Prof. Dr. Egon J. Greipl (stv. Bruderschaftsmeister), Prof. Dr. Franz Staudt (Armenbetreuer). 
-          </p>
-          <p class="lead-text"> 
-            Update: Prof. Dr. Egon Johannes Greipl verzichtete aus privaten Gründen ende 2025 auf sein Amt. Bei einer außerordentlichen Mitgliederversammlung
-am 13.01.2026 wurde Ralf Schützenberger einstimmig als Nachfolger gewählt. 
-          </p>
-
-        </div>
-
+    <section id="armenbetreuer" class="editorial-section container">
+      <div class="editorial-prose">
+        <h2>Armenbetreuer</h2>
+        <p>In der Satzung ist unter § 3 der wichtigste Vereinszweck mit der „Unterstützung bedürftiger Personen in Passau“ genannt. Als Beispiele für die segensreiche Arbeit der beiden Armenbetreuer seien nachfolgend einige Auszüge von Bittbriefen und Dankschreiben abgedruckt.</p>
+        <h3>Bittbriefe</h3>
+        <blockquote><em>Ich bin ein totaler gebrochener Mann geworden. Zur Zeit lebe ich von einer geringen Witwerrente, weil meine Ehefrau zu jung verstarb. Aufs Weihnachtsfest wünsche ich mir nur eins: menschenwürdig das Fest begehen zu können, mit Diätlebensmitteln, nur ich hab das Geld nicht dazu. </em></blockquote>
+        <blockquote><em>Ich bitte um eine kleine Spende da ich nur eine kleine Rente habe. Da ich noch einen Sohn habe mit 3 Jahre und der am Wochenende immer bei mir ist. Mein Sohn und ich bedanken uns recht herzlich dafür.</em></blockquote>
+        <blockquote><em>Wir wünschen ihnen allen ein frohes Fest und ein gesundes neues Jahr. Ich möchte Sie bitten um eine Spende. Da ich Rentnerin bin und 80% schwerbehindert. Eine Kopie liegt im Brief dabei.</em></blockquote>
+        <blockquote><em>Betreff: Total akute Weihnachtsnotlage<br />In Anbetracht meiner total akuten Weihnachtsnotlage, bitte ich Sie sowie die Lamplbrüder innigst, aufrichtigst und von ganzem Herzen um Ihre Weihnachtszuwendung. Durch Ihre Menschlichkeit ermöglichen Sie mir ein würdiges Weihnachtsfest. Zum Weihnachtsfest 2012 stehe ich total mittellos da und hab keinen Cent um mir vor allem Lebensmittel kaufen zu können. Herr Geins, 1. Vorsitzender der Lamplbrüder, ich wäre Ihnen sowie den Lamplbrüdern sehr dankbar für eine Beihilfe zum Weihnachtsfest 2012. Ich könnte die Weihnachtsbeihilfe schon früher gebrauchen, damit ich mir schon rechtzeitig Lebensmittel kaufen könnte, denn das Weihnachtsfest steht schon vor der Tür.</em></blockquote>
+        <h3>Dankschreiben</h3>
+        <blockquote><em>Hiermit möchten meine Kinder und ich uns bei Ihnen und den Lamplbrüdern sehr herzlich bedanken für Ihre Spende von 250 Euro. Wünschen Ihnen und den Lamplbrüdern ein Frohes Weihnachtsfest und ein guten Rutsch ins neue Jahr 2012.<br />PS: Sie haben uns mit Ihrer Spende sehr viel geholfen</em></blockquote>
+        <blockquote><em>Ich möchte mich ganz herzlich bedanken für Ihre große finanzielle Unterstützung, die Sie mir zukommen ließen. Mit dieser Überraschung begann für mich eine der schönsten Weihnachtszeit der letzten Jahre. Nochmals herzlichen Dank der Lamplbruderschaft und ich wünsche Ihnen und Ihrem Verein eine besinnliche, gesegnete Advent- und Weihnachtszeit.</em></blockquote>
+        <p><strong><em>In den sieben Jahren des damaligen Berichtszeitraums wurden insgesamt € 133.850,00 an „verschämte Arme“ in Passau ausgegeben.</em></strong></p>
       </div>
     </section>
 
-    <section id="armenbetreuer" class="content-section">
-      <div class="container content-grid">
-
-        <div class="section-title">
-          <h2>Armenbetreuer</h2>
-
-          <p class="lead-text">
-            	
-In der Satzung ist unter  § 3 der wichtigste Vereinszweck mit der „Unterstützung bedürftiger Personen in Passau“ genannt. Als Beispiele für die segensreiche Arbeit der beiden Armenbetreuer seien nachfolgend einige Auszüge von Bittbriefen und Dankschreiben abgedruckt.
-          </p>
-        </div>
-
-        <div class="prose">
-          <h4>Bittbriefe</h4>
-          <p class="lead-text">
-            Ich bin ein totaler gebrochener Mann geworden. Zur Zeit lebe ich von einer geringen Witwerrente, weil meine Ehefrau zu jung verstarb. Aufs Weihnachtsfest wünsche ich mir nur eins: menschenwürdig das Fest begehen zu können, mit Diätlebensmitteln, nur ich hab das Geld nicht dazu.
-
-***
-
-Ich bitte um eine kleine Spende da ich nur eine kleine Rente habe. Da ich noch einen Sohn habe mit 3 Jahre und der am Wochenende immer bei mir ist. Mein Sohn und ich bedanken uns recht herzlich dafür.
-
-***
-
-Wir wünschen ihnen allen ein frohes Fest und ein gesundes neues Jahr. Ich möchte Sie bitten um eine Spende. Da ich Rentnerin bin und 80% schwerbehindert. Eine Kopie liegt im Brief dabei.
-
-***
-
-Betreff: Total akute Weihnachtsnotlage
-In Anbetracht meiner total akuten Weihnachtsnotlage, bitte ich Sie sowie die Lamplbrüder innigst, aufrichtigst und von ganzem Herzen um Ihre Weihnachtszuwendung. Durch Ihre Menschlichkeit ermöglichen Sie mir ein würdiges Weihnachtsfest. Zum Weihnachtsfest 2012 stehe ich total mittellos da und hab keinen Cent um mir vor allem Lebensmittel kaufen zu können. Herr Geins, 1. Vorsitzender der Lamplbrüder, ich wäre Ihnen sowie den Lamplbrüdern sehr dankbar für eine Beihilfe zum Weihnachtsfest 2012. Ich könnte die Weihnachtsbeihilfe schon früher gebrauchen, damit ich mir schon rechtzeitig Lebensmittel kaufen könnte, denn das Weihnachtsfest steht schon vor der Tür.
-          </p>
-          <h4>Dankschreiben</h4>
-          <p class="lead-text">
-            Hiermit möchten meine Kinder und ich uns bei Ihnen und den Lamplbrüdern sehr herzlich bedanken für Ihre Spende von 250 Euro. Wünschen Ihnen und den Lamplbrüdern ein Frohes Weihnachtsfest und ein guten Rutsch ins neue Jahr 2012.
-PS: Sie haben uns mit Ihrer Spende sehr viel geholfen
-
-***
-
-Ich möchte mich ganz herzlich bedanken für Ihre große finanzielle Unterstützung, die Sie mir zukommen ließen. Mit dieser Überraschung begann für mich eine der schönsten Weihnachtszeit der letzten Jahre. Nochmals herzlichen Dank der Lamplbruderschaft und ich wünsche Ihnen und Ihrem Verein eine besinnliche, gesegnete Advent- und Weihnachtszeit.
-
-***
-
-<b>In den letzten 7 Jahren wurden insgesamt € 133.850,00 an „verschämte Arme“ in Passau ausgegeben.</b>
-          </p>
-
-        </div>
-
-      </div>
+    <section id="auftrag" class="editorial-section container">
+      <article class="editorial-prose" aria-labelledby="auftrag-titel">
+        <header class="editorial-article-header">
+          <h2 id="auftrag-titel">Unser Auftrag</h2>
+          <p class="editorial-byline">Verfasst von Egon Johannes Greipl</p>
+        </header>
+        <h3>Armut ist unser Auftrag</h3>
+        <p>Im Gerichtswesen gab es einst den Begriff des Armenrechtes: Ein Mensch, dem es an Mitteln fehlte, einen Rechtsstreit zu finanzieren, sollte dennoch zu seinem Recht kommen können. Wenn er ein Armutszeugnis vorlegte, übernahm der Staat die Streitkosten. In der Wirtschaftswunderzeit galt in Deutschland die Armut als für immer überwunden; sie konnte, wenn überhaupt, nur selbstverschuldet sein.</p>
+        <p>1980 schämte sich sozusagen die Prozessordnung und sie sprach nicht mehr vom Armenrecht sondern von Prozesskostenhilfe. Ein bürokratisches Wortmonstrum hatte den ehrwürdigen Begriff ersetzt. Jetzt hörte man weniger heraus, dass gerade die Armen ein Recht haben, sondern, dass einer Prozesspartei auf Antrag finanziell ggf. geholfen werden kann.</p>
+        <p>Dieser Vorgang drückt Verdrängung aus: So genannte Wohlstandsgesellschaften, ihre Politiker zumal, hören es nicht so gerne, dass Armut nicht nur am Äquator sitzt, sondern unmittelbar vor der eigenen Tür. Die Armutsberichte, die ebenfalls gerne das Wort Armut vermeiden und lieber Sozialberichte heißen, zeigen, dass seit Jahrzehnten die Reichen immer weniger und immer reicher, und die Armen immer mehr und immer ärmer werden. Die Maßstäbe der Armut sind weltweit unsicher, und die Dunkelziffern sind hoch, nicht zuletzt deshalb, weil viele ihre Armut verdrängen oder aus Scham verbergen.</p>
+        <p>Armut als materielle Bedürftigkeit, als Abhängigkeit und Hilflosigkeit gab es zu allen Zeiten. Und zu allen Zeiten wurde sie unterschiedlich bewertet. Wenn Dürre und Wasserflut, Erdbeben und Feuer Hunger und Armut verursachten, sprachen die Menschen oft von einer kollektiven Strafe Gottes. Damit war solche Armut selbstverschuldet, ebenso wie die individuelle Armut, welche der Faulheit, der Verschwendung oder dem Leichtsinn folgte. Das Christentum kannte, wie andere Religionen auch, die freiwillige Armut von Mönche und der Nonnen; es rückte Armut und Seligkeitsverheißung eng zusammen, wenn es von den Armen im Geiste oder von den Pauperes Christi (Arme Christi) predigte.</p>
+        <p>Die Weltarmut, von der wir heute sprechen, ebenso unfreiwillig wie selbstverschuldet, aber nicht von den Armen, sondern einer Menschheit, welche keinen Weg findet, auszubrechen aus dem Teufelskreis von radikalen Lehren, von Bevölkerungsexplosion und Völkermord, von massenhafter Vertreibung, Unterdrückung und Ausbeutung, von Umweltverheerung, Landraub und Lebensmittelspekulation.</p>
+        <p>Die Versuche, im Rahmen politischer Konzepte das Armutsproblem dauerhaft zu bewältigen, sind zahllos. Sie reichen von rein karitativen Ansätzen über die Idee von der Sozialen Marktwirtschaft bis hin zu den radikalen und revolutionären Modellen des Kommunismus. Ein Phänomen ist, dass nach dem Zusammenbruch kommunistischer Systeme wie in der Sowjetunion oder in China , die ja viele Jahrzehnte Zeit hatten, ihre Ziele umzusetzen, sich in der postkommunistischen Realität die Gegensätze zwischen arm und reich besonders schroff entwickelten.</p>
+        <p>Ein Phänomen ist auch, dass sich in der globalen Betrachtung nach 250 Jahren Aufklärung, Ausbreitung der demokratischen Ideen, Kolonialismus und Entkolonialisierung, Entwicklungshilfe und anderen Konzepten zur Beglückung der Menschheit, in der Realität die Gegensätze zwischen armen und reichen Kontinenten, die Ausbeutung der Armen durch die Reichen drastisch verschärft hat. Alle möglichen Welthungerhilfen, Welternährungs- und Weltgesundheitsbürokratien haben offenbar nur wenig helfen können, vielleicht nur Schlimmeres verhindert.</p>
+        <p>Die Instrumente der nationalen und internationalen Sozialfürsorge sind große Errungenschaften. Aber sie dürfen dem Einzelnen nicht zum Alibi werden! Armut geht uns immer noch an, und jeder von uns ist immer noch aufgerufen, die grassierende Armut zur Kenntnis zu nehmen, auch in unserer Stadt. Jeder ist aufgerufen, in seinem ganz persönlichen Wirkungskreis die Möglichkeiten zu nutzen um zu helfen.</p>
+        <p>Allen Mitgliedern der U. L. F. Salzfertiger und Schiffleute Bruderschaft (Lamplbruderschaft) trägt die Satzung nicht mehr aber auch nicht weniger auf als die Unterstützung bedürftiger Personen in Passau. Wir stehen, wie nur sehr wenige andere Vereinigungen, in einer langen und stolzen Tradition. Bruderschaften waren im Mittelalter ein tragendes Element in der städtischen Gesellschaft. Sie hängen eng mit dem Aufblühen des Städtewesens im hohen und späten Mittelalter zusammen, und manchmal waren sie unlösbar mit dem Zunftwesen verknüpft.</p>
+        <p>Auch die heutige Lamplbruderschaft ist aus dem städtischen Zunftwesen hervorgegangen. Zünfte waren ein Element der bürgerlichen Emanzipation und ein Instrument der Marktregulierung. So verfolgten unsere Vorgänger wohl zunächst und vorwiegend wirtschafts- und ordnungspolitische Ziele. Es galt, das Monopol für Schifffahrt und Salzhandel innerhalb der Stadt zu sichern, gemeinsame Interessen nach außen zu vertreten und sich gegenseitig in beruflichen Angelegenheiten zu unterstützen.</p>
+        <p>Sicherlich besaß die Bruderschaft schon von Anfang an auch die Merkmale einer Solidargemeinschaft. Das bedeutete wie heute die Solidarität unter den Lebenden und drückte sich beispielsweise in der Fürsorge für die Witwen und für die Waisen der Mitglieder aus. Viel wichtiger als heute ist freilich die Solidarität zwischen den Lebenden und den Verstorbenen gewesen. Diese fand ihren Ausdruck im Kult der Leichenbegräbnisse, im gemeinsamen Gedenken und im Gebet für das Seelenheil der verstorbenen Mitbrüder.</p>
+        <p>Das Engagement der Zünfte und Bruderschaften im religiösen und sozialen Bereich wuchs mit der Zeit und gewann nicht selten den Vorrang vor den berufsständischen Aspekten. Heute ist es der Kern, ja die Legitimation unserer<br />U. L. F. Salzfertiger und Schiffleute Bruderschaft (Lamplbruderschaft) zu Passau.</p>
+        <p>Die Armut unserer Zeit in unserer Stadt ist der eindeutige, neben der Pflege der Verbundenheit untereinander sogar einzige Auftrag. Es ist ein vornehmer Auftrag; um ihn recht zu erfüllen, müssen wir wach, groszügig und bescheiden sein.</p>
+      </article>
     </section>
-
-    <section id="auftrag" class="content-section">
-      <div class="container content-grid">
-
-        <div class="section-title">
-          <p class="eyebrow">Armut ist unser Auftrag</p>
-
-          <h2>Unser Auftrag</h2>
-
-        </div>
-
-        <div class="prose">
-
-          <p class="lead-text">
-            Im Gerichtswesen gab es einst den Begriff des Armenrechtes: Ein Mensch, dem es an Mitteln fehlte, einen Rechtsstreit zu finanzieren, sollte dennoch zu seinem Recht kommen können. Wenn er ein Armutszeugnis vorlegte, übernahm der Staat die Streitkosten. In der Wirtschaftswunderzeit galt in Deutschland die Armut als für immer überwunden; sie konnte, wenn überhaupt, nur selbstverschuldet sein.
-
-1980 schämte sich sozusagen die Prozessordnung und sie sprach nicht mehr vom Armenrecht sondern von Prozesskostenhilfe. Ein bürokratisches Wortmonstrum hatte den ehrwürdigen Begriff ersetzt. Jetzt hörte man weniger heraus, dass gerade die Armen ein Recht haben, sondern, dass einer Prozesspartei auf Antrag finanziell ggf. geholfen werden kann.
-
-Dieser Vorgang drückt Verdrängung aus: So genannte Wohlstandsgesellschaften, ihre Politiker zumal, hören es nicht so gerne, dass Armut nicht nur am Äquator sitzt, sondern unmittelbar vor der eigenen Tür. Die Armutsberichte, die ebenfalls gerne das Wort Armut vermeiden und lieber Sozialberichte heißen, zeigen, dass seit Jahrzehnten die Reichen immer weniger und immer reicher, und die Armen immer mehr und immer ärmer werden. Die Maßstäbe der Armut sind weltweit unsicher, und die Dunkelziffern sind hoch, nicht zuletzt deshalb, weil viele ihre Armut verdrängen oder aus Scham verbergen.
-
-Armut als materielle Bedürftigkeit, als Abhängigkeit und Hilflosigkeit gab es zu allen Zeiten. Und zu allen Zeiten wurde sie unterschiedlich bewertet. Wenn Dürre und Wasserflut, Erdbeben und Feuer Hunger und Armut verursachten, sprachen die Menschen oft von einer kollektiven Strafe Gottes. Damit war solche Armut selbstverschuldet, ebenso wie die individuelle Armut, welche der Faulheit, der Verschwendung oder dem Leichtsinn folgte. Das Christentum kannte, wie andere Religionen auch, die freiwillige Armut von Mönche und der Nonnen; es rückte Armut und Seligkeitsverheißung eng zusammen, wenn es von den Armen im Geiste oder von den Pauperes Christi (Arme Christi) predigte.
-
-Die Weltarmut, von der wir heute sprechen, ebenso unfreiwillig wie selbstverschuldet, aber nicht von den Armen, sondern einer Menschheit, welche keinen Weg findet, auszubrechen aus dem Teufelskreis von radikalen Lehren, von Bevölkerungsexplosion und Völkermord, von massenhafter Vertreibung, Unterdrückung und Ausbeutung, von Umweltverheerung, Landraub und Lebensmittelspekulation.
-
-Die Versuche, im Rahmen politischer Konzepte das Armutsproblem dauerhaft zu bewältigen, sind zahllos. Sie reichen von rein karitativen Ansätzen über die Idee von der Sozialen Marktwirtschaft bis hin zu den radikalen und revolutionären Modellen des Kommunismus. Ein Phänomen ist, dass nach dem Zusammenbruch kommunistischer Systeme wie in der Sowjetunion oder in China , die ja viele Jahrzehnte Zeit hatten, ihre Ziele umzusetzen, sich in der postkommunistischen Realität die Gegensätze zwischen arm und reich besonders schroff entwickelten.
-
-Ein Phänomen ist auch, dass sich in der globalen Betrachtung nach 250 Jahren Aufklärung, Ausbreitung der demokratischen Ideen, Kolonialismus und Entkolonialisierung, Entwicklungshilfe und anderen Konzepten zur Beglückung der Menschheit, in der Realität die Gegensätze zwischen armen und reichen Kontinenten, die Ausbeutung der Armen durch die Reichen drastisch verschärft hat. Alle möglichen Welthungerhilfen, Welternährungs- und Weltgesundheitsbürokratien haben offenbar nur wenig helfen können, vielleicht nur Schlimmeres verhindert.
-
-Die Instrumente der nationalen und internationalen Sozialfürsorge sind große Errungenschaften. Aber sie dürfen dem Einzelnen nicht zum Alibi werden! Armut geht uns immer noch an, und jeder von uns ist immer noch aufgerufen, die grassierende Armut zur Kenntnis zu nehmen, auch in unserer Stadt. Jeder ist aufgerufen, in seinem ganz persönlichen Wirkungskreis die Möglichkeiten zu nutzen um zu helfen.
-
-Allen Mitgliedern der U. L. F. Salzfertiger und Schiffleute Bruderschaft (Lamplbruderschaft) trägt die Satzung nicht mehr aber auch nicht weniger auf als die Unterstützung bedürftiger Personen in Passau. Wir stehen, wie nur sehr wenige andere Vereinigungen, in einer langen und stolzen Tradition. Bruderschaften waren im Mittelalter ein tragendes Element in der städtischen Gesellschaft. Sie hängen eng mit dem Aufblühen des Städtewesens im hohen und späten Mittelalter zusammen, und manchmal waren sie unlösbar mit dem Zunftwesen verknüpft.
-
-Auch die heutige Lamplbruderschaft ist aus dem städtischen Zunftwesen hervorgegangen. Zünfte waren ein Element der bürgerlichen Emanzipation und ein Instrument der Marktregulierung. So verfolgten unsere Vorgänger wohl zunächst und vorwiegend wirtschafts- und ordnungspolitische Ziele. Es galt, das Monopol für Schifffahrt und Salzhandel innerhalb der Stadt zu sichern, gemeinsame Interessen nach außen zu vertreten und sich gegenseitig in beruflichen Angelegenheiten zu unterstützen.
-
-Sicherlich besaß die Bruderschaft schon von Anfang an auch die Merkmale einer Solidargemeinschaft. Das bedeutete wie heute die Solidarität unter den Lebenden und drückte sich beispielsweise in der Fürsorge für die Witwen und für die Waisen der Mitglieder aus. Viel wichtiger als heute ist freilich die Solidarität zwischen den Lebenden und den Verstorbenen gewesen. Diese fand ihren Ausdruck im Kult der Leichenbegräbnisse, im gemeinsamen Gedenken und im Gebet für das Seelenheil der verstorbenen Mitbrüder.
-
-Das Engagement der Zünfte und Bruderschaften im religiösen und sozialen Bereich wuchs mit der Zeit und gewann nicht selten den Vorrang vor den berufsständischen Aspekten. Heute ist es der Kern, ja die Legitimation unserer
-U. L. F. Salzfertiger und Schiffleute Bruderschaft (Lamplbruderschaft) zu Passau.
-
-Die Armut unserer Zeit in unserer Stadt ist der eindeutige, neben der Pflege der Verbundenheit untereinander sogar einzige Auftrag. Es ist ein vornehmer Auftrag; um ihn recht zu erfüllen, müssen wir wach, groszügig und bescheiden sein.
-          </p>
-
-        </div>
-
-      </div>
-    </section>
-
   </main>
 </BaseLayout>

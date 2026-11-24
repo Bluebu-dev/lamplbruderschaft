@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import mitglieder from '../../data/mitglieder.json';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Mitglieder | Lamplbruderschaft zu Passau"
+  description="Die Mitglieder der Lamplbruderschaft zu Passau mit Beruf und Eintrittsjahr."
+>
+  <main class="container members">
+    <a class="back-link" href={`${base}bruderschaft`}>← Zur Bruderschaft</a>
+    <h1 id="mitglieder">Mitglieder</h1>
+
+    <div class="table-scroll" role="region" aria-labelledby="mitglieder" tabindex="0">
+      <table aria-labelledby="mitglieder">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Beruf</th>
+            <th scope="col">Mitglied seit:</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mitglieder.map(([name, beruf, mitgliedSeit]) => (
+            <tr>
+              <th scope="row">{name}</th>
+              <td>{beruf}</td>
+              <td>{mitgliedSeit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .members {
+    max-width: 62rem;
+    padding-block: clamp(2rem, 6vw, 5rem);
+  }
+
+  .back-link {
+    color: var(--color-primary);
+    text-underline-offset: 0.2em;
+  }
+
+  h1 {
+    margin: 0.75rem 0 1.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: 34rem;
+    border-collapse: collapse;
+    line-height: 1.5;
+  }
+
+  th,
+  td {
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-border);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  thead {
+    color: var(--color-primary);
+    background: var(--color-background-alt);
+  }
+
+  tbody th {
+    font-weight: normal;
+  }
+
+  tr > :last-child {
+    width: 8rem;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+</style>
