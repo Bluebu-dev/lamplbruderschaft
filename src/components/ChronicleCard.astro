@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
-const base = import.meta.env.BASE_URL;
+import { formatChronicleDate } from '../lib/chronicle';
 
 interface Props {
   title: string;
@@ -20,11 +20,7 @@ const {
   cover,
 } = Astro.props;
 
-const formattedDate = date.toLocaleDateString('de-DE', {
-  day: '2-digit',
-  month: 'long',
-  year: 'numeric',
-});
+const formattedDate = formatChronicleDate(date);
 ---
 
 <article class="card">

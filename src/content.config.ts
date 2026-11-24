@@ -14,6 +14,9 @@ const chronik = defineCollection({
       excerpt: z.string(),
 
       cover: image().optional(),
+      coverAlt: z.string().optional(),
+      coverCaption: z.string().optional(),
+      source: z.string().url().optional(),
 
       gallery: z.array(
         z.object({

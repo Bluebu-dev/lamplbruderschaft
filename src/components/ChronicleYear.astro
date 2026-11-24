@@ -1,0 +1,129 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ChronicleArchiveImage from './ChronicleArchiveImage.astro';
+import { formatChronicleDate, type ArchiveNote } from '../lib/chronicle';
+
+interface Props {
+  year: number;
+  notes: ArchiveNote[];
+  entries: CollectionEntry<'chronik'>[];
+  pressEntryIds: string[];
+}
+
+const { year, notes, entries, pressEntryIds } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const timeline = [
+  ...notes.map((note) => ({ order: note.order, note })),
+  ...entries.map((entry) => ({
+    order: (entry.data.date.getUTCMonth() + 1) * 100 + entry.data.date.getUTCDate(),
+    entry,
+  })),
+].sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout title={`Chronik ${year} | Lamplbruderschaft`} description={`Ereignisse und Berichte der Lamplbruderschaft im Jahr ${year}.`}>
+  <main class="editorial-page">
+    <header class="editorial-header container">
+      <a class="back" href={`${base}chronik/#jahresarchiv`}>← Zum Jahresarchiv</a>
+      <h1>Chronik {year}</h1>
+    </header>
+    <section class="editorial-section container year-section" aria-label={`Einträge für ${year}`}>
+      <ol class="timeline">
+        {timeline.map((item) => (
+          <li>
+            {'entry' in item ? (
+              <article class="year-article">
+                <div>
+                  <time datetime={item.entry.data.date.toISOString().slice(0, 10)}>
+                    {formatChronicleDate(item.entry.data.date)}
+                  </time>
+                  <h2><a href={`${base}chronik/${item.entry.id}/`}>{item.entry.data.title}</a></h2>
+                  <p>{item.entry.data.excerpt}</p>
+                  {pressEntryIds.includes(item.entry.id) && (
+                    <p><a href={`${base}chronik/${item.entry.id}/#presse`}>Zum Zeitungsausschnitt</a></p>
+                  )}
+                </div>
+                {item.entry.data.cover && (
+                  <Image src={item.entry.data.cover} alt="" width={360} loading="lazy" />
+                )}
+              </article>
+            ) : (
+              <div class="editorial-prose">
+                {item.note.date && <p class="note-date">{item.note.date}</p>}
+                {item.note.text.map((text) => <p>{text}</p>)}
+                {item.note.links?.map(({ href, label }) => (
+                  <p><a href={href.startsWith('http') ? href : `${base}${href}`}>{label}</a></p>
+                ))}
+                {item.note.photos?.map((item) => <ChronicleArchiveImage item={item} />)}
+              </div>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .back,
+  .timeline a {
+    color: var(--color-primary);
+    text-underline-offset: 0.2em;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .year-section {
+    padding-block-start: 0;
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding-inline-start: 0;
+  }
+
+  .timeline > li {
+    border-top: 1px solid var(--color-border);
+    padding-block: 1.25rem;
+  }
+
+  .timeline p:last-child {
+    margin-bottom: 0;
+  }
+
+  .note-date,
+  time {
+    color: var(--color-muted);
+    font-weight: 600;
+  }
+
+  .year-article {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 1rem 2rem;
+  }
+
+  .year-article > div {
+    flex: 1 1 26rem;
+    max-width: 65ch;
+  }
+
+  .year-article h2 {
+    margin-block: 0.25rem 0.5rem;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .year-article img {
+    width: min(100%, 11rem);
+    border-radius: 0.25rem;
+  }
+</style>

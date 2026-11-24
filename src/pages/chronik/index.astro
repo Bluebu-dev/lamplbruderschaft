@@ -1,114 +1,83 @@
 ---
-import { getCollection } from 'astro:content';
-
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ChronicleCard from '../../components/ChronicleCard.astro';
+import { getChronicle } from '../../lib/chronicle';
 
 const base = import.meta.env.BASE_URL;
-
-const entries = (await getCollection('chronik')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const { entries, years } = await getChronicle();
 ---
 
 <BaseLayout
   title="Chronik | Lamplbruderschaft zu Passau"
   description="Neuigkeiten, Veranstaltungen und Ereignisse aus dem Leben der Lamplbruderschaft zu Passau."
 >
-  <main>
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Aktuelles & Geschichte</p>
+  <main class="editorial-page">
+    <header class="editorial-header container">
+      <h1>Chronik</h1>
+      <p>Ereignisse, Begegnungen und Geschichten aus dem Leben der Lamplbruderschaft.</p>
+    </header>
 
-        <h1>Chronik</h1>
-
-        <p class="lead">
-          Ereignisse, Begegnungen und Geschichten aus dem Leben
-          der Lamplbruderschaft.
-        </p>
-      </div>
+    <section id="jahresarchiv" class="editorial-section container archive">
+      <h2>Jahresarchiv</h2>
+      <nav aria-label="Jahrgänge">
+        <ul class="years">
+          {years.map((year) => <li><a href={`${base}chronik/${year}/`}>{year}</a></li>)}
+        </ul>
+      </nav>
     </section>
 
-    <section class="entries">
-      <div class="container">
-        <div class="grid">
-          {
-            entries.map((entry) => (
-              <ChronicleCard
-                title={entry.data.title}
-                date={entry.data.date}
-                excerpt={entry.data.excerpt}
-                cover={entry.data.cover}
-                href={`${base}chronik/${entry.id}`}
-                />
-            ))
-          }
-        </div>
+    <section class="editorial-section container">
+      <h2>Beiträge</h2>
+      <div class="grid">
+        {entries.map((entry) => (
+          <ChronicleCard
+            title={entry.data.title}
+            date={entry.data.date}
+            excerpt={entry.data.excerpt}
+            cover={entry.data.cover}
+            href={`${base}chronik/${entry.id}/`}
+          />
+        ))}
       </div>
     </section>
   </main>
 </BaseLayout>
 
 <style>
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  .archive {
+    padding-block: 1.25rem 2.25rem;
   }
 
-  .eyebrow {
-    margin: 0 0 1rem;
-
-    font-size: 0.8rem;
-    font-weight: bold;
-
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-
-    color: var(--color-gold);
-  }
-
-  h1 {
+  .years {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin: 0;
-
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 0.9;
+    padding: 0;
+    list-style: none;
   }
 
-  .lead {
-    max-width: 650px;
-
-    margin: 2rem 0 0;
-
-    font-size: 1.25rem;
-    line-height: 1.7;
-
-    color: #d6d0c8;
+  .years a {
+    display: block;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.2rem;
+    background: var(--color-background-alt);
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
   }
 
-  .entries {
-    padding: 7rem 2rem;
-
-    background: var(--color-background);
+  .years a:hover,
+  .years a:focus-visible {
+    border-color: var(--color-primary);
+    text-decoration: underline;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 4rem 3rem;
-  }
-
-  @media (max-width: 800px) {
-    .hero {
-      padding: 6rem 1.5rem 4rem;
-    }
-
-    .entries {
-      padding: 5rem 1.5rem;
-    }
-
-    .grid {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+    align-items: start;
+    gap: 2.5rem 1.5rem;
   }
 </style>

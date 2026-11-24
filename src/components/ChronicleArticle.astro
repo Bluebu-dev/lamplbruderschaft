@@ -1,0 +1,131 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ChronicleArchiveImage from './ChronicleArchiveImage.astro';
+import { formatChronicleDate, type ArchiveImage } from '../lib/chronicle';
+
+interface Props {
+  entry: CollectionEntry<'chronik'>;
+  press?: ArchiveImage[];
+}
+
+const { entry, press = [] } = Astro.props;
+const { Content } = await render(entry);
+const { title, date, excerpt, cover, coverAlt, coverCaption, gallery, source } = entry.data;
+const base = import.meta.env.BASE_URL;
+const year = date.getUTCFullYear();
+---
+
+<BaseLayout title={`${title} | Lamplbruderschaft`} description={excerpt}>
+  <main class="editorial-page">
+    <header class="editorial-header container">
+      <nav class="back-links" aria-label="Chronik">
+        <a href={`${base}chronik/`}>← Zur Chronik</a>
+        <a href={`${base}chronik/${year}/`}>Jahrgang {year}</a>
+      </nav>
+      <time datetime={date.toISOString().slice(0, 10)}>{formatChronicleDate(date)}</time>
+      <h1>{title}</h1>
+      <p>{excerpt}</p>
+    </header>
+
+    {cover && (
+      <figure class="container editorial-figure editorial-section article-cover">
+        <a href={cover.src}>
+          <Image src={cover} alt={coverAlt ?? title} width={Math.min(cover.width, 1280)} />
+        </a>
+        {coverCaption && <figcaption>{coverCaption}</figcaption>}
+      </figure>
+    )}
+
+    <div class="container editorial-section article-text">
+      <article class="editorial-prose">
+        <Content />
+        {source && <p class="source"><a href={source}>Quelle auf der Altwebsite</a></p>}
+      </article>
+    </div>
+
+    {gallery.length > 0 && (
+      <section class="container editorial-section">
+        <h2>Fotos</h2>
+        <div class="photo-grid">
+          {gallery.map(({ image, alt, caption }) => (
+            <figure class="editorial-figure">
+              <a href={image.src}>
+                <Image src={image} alt={alt} width={Math.min(image.width, 760)} loading="lazy" />
+              </a>
+              {caption && <figcaption>{caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {press.length > 0 && (
+      <section id="presse" class="container editorial-section">
+        <h2>Presse</h2>
+        {press.map((item) => <ChronicleArchiveImage item={item} />)}
+      </section>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  .back-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .back-links a,
+  .source a {
+    color: var(--color-primary);
+    text-underline-offset: 0.2em;
+  }
+
+  time {
+    color: var(--color-muted);
+  }
+
+  h1 {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
+  .article-cover {
+    margin-inline: auto;
+    padding-block: 0 1rem;
+  }
+
+  .article-cover img {
+    width: auto;
+    max-height: 38rem;
+    object-fit: contain;
+  }
+
+  .article-text {
+    padding-block: 2rem;
+  }
+
+  .article-text :global(h2) {
+    margin-block: 1.5em 0.5em;
+  }
+
+  .source {
+    font-size: 1rem;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    align-items: start;
+    gap: 2rem 1.25rem;
+  }
+
+  .photo-grid img {
+    width: auto;
+    max-height: 22rem;
+    object-fit: contain;
+  }
+</style>

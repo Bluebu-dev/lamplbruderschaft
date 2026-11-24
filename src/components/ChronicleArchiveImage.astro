@@ -1,0 +1,31 @@
+---
+import type { ArchiveImage } from '../lib/chronicle';
+
+interface Props {
+  item: ArchiveImage;
+}
+
+const { image, caption, source } = Astro.props.item;
+const src = `${import.meta.env.BASE_URL}${image}`;
+---
+
+<figure class="editorial-figure archive-image">
+  <a href={src} aria-label={`${caption} – Bild öffnen`}>
+    <img src={src} alt={caption} loading="lazy" />
+  </a>
+  <figcaption>
+    {caption} · <a href={source}>Fundstelle auf der Altwebsite</a>
+  </figcaption>
+</figure>
+
+<style>
+  .archive-image {
+    max-width: 25rem;
+    margin-block: 1rem;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-underline-offset: 0.2em;
+  }
+</style>
